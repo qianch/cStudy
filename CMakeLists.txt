@@ -1,0 +1,5 @@
+cmake_minimum_required(VERSION 3.12)
+project(cstudy VERSION 1.0.0 LANGUAGES C CXX)
+add_subdirectory(src/c)
+add_subdirectory(src/catch)
+add_subdirectory(src/test)

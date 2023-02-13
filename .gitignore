@@ -1,0 +1,29 @@
+# /
+/.gdb_history
+/config.cache
+/configarg.cache
+/config.status
+/wx-config
+/config.log
+/stamp-h.in
+/Makefile
+/setup.h
+/*tags
+/autom4te.cache
+
+# /build/
+build
+
+#/vs/
+.vs
+
+#/Debug/
+Debug
+
+# /include/
+include
+
+# /lib/
+lib
+
+*.vcxproj.user

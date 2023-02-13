@@ -1,0 +1,5 @@
+link_libraries("D:\\source\\Catch2\\build\\src\\Debug\\Catch2d.lib")
+link_libraries("D:\\source\\Catch2\\build\\src\\Debug\\Catch2Maind.lib")
+add_executable(catch catch.cpp)
+include_directories("D:\\source\\Catch2\\src\\catch2\\..")
+include_directories("D:\\source\\Catch2\\build\\generated-includes")
