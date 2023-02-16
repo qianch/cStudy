@@ -15,6 +15,7 @@ if(NOT CMAKE_CXX_STANDARD)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 message(STATUS "CMAKE_CXX_STANDARD:${CMAKE_CXX_STANDARD}")
+
 project(cstudy VERSION 1.0.0 LANGUAGES C CXX)
 add_subdirectory(src/c)
 add_subdirectory(src/catch)
