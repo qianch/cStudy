@@ -4,6 +4,7 @@ set(SRC_LIST catch.cpp)
 add_executable(catch ${SRC_LIST})
 find_package(Catch2 REQUIRED)
 
+message(STATUS ${CMAKE_SYSTEM_NAME})
 if(Catch2_FOUND)
     if(MSVC)
        INCLUDE_DIRECTORIES("${CMAKE_MODULE_PATH}/../../../include")
