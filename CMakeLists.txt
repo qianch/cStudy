@@ -11,7 +11,7 @@ message(STATUS "CMAKE_BUILD_TYPE:${CMAKE_BUILD_TYPE}")
 # Compiler config
 # ---------------------------------------------------------------------------------------
 if(NOT CMAKE_CXX_STANDARD)
-    set(CMAKE_CXX_STANDARD 11)
+    set(CMAKE_CXX_STANDARD 14)
     set(CMAKE_CXX_STANDARD_REQUIRED ON)
 endif()
 message(STATUS "CMAKE_CXX_STANDARD:${CMAKE_CXX_STANDARD}")
