@@ -12,7 +12,7 @@ void test(int n)
         "Not the answer");
 }
 
-TEST_CASE("My first test", "[my]")
+TEST_CASE("case1", "[tcase1]")
 {
     INFO("Testing");
     CHECK(1 + 1 == 2);
@@ -24,7 +24,7 @@ TEST_CASE("My first test", "[my]")
     CHECK(2 + 2 == expected);
 }
 
-TEST_CASE("test", "[test]")
+TEST_CASE("case2", "[tcase2]")
 {
     CHECK(1 == 1);
     CHECK(1 == 2);

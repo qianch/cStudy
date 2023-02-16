@@ -1,1 +1,1 @@
-add_executable(demo main.c)
+add_executable(maked main.cpp)
