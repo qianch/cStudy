@@ -27,4 +27,5 @@ TEST_CASE("My first test", "[my]")
 TEST_CASE("test", "[test]")
 {
     CHECK(1 == 1);
+    CHECK(1 == 2);
 }
