@@ -17,6 +17,16 @@ int main(void) {
 	cout << "c:" << c << endl;
 	cout << "d:" << d << endl;
 	cout << abplus1(a, *b) << endl;
+
+	int e, f;
+	e = f = 3;
+	cout << "e=" << e << " f=" << f << endl;
+	if (e = 4)
+		cout << "e is equal to 4." << endl;
+	else
+		cout << "e is not equal to 4." << endl;
+	cout << "e=" << e << " f=" << f << endl;
+
 	return 0;
 }
 
