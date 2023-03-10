@@ -1,1 +1,1 @@
-add_executable(maked main.cpp)
+add_executable(makeTest main.cpp)
