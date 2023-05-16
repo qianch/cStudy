@@ -26,7 +26,7 @@ int main(void) {
 	else
 		cout << "e is not equal to 4." << endl;
 	cout << "e=" << e << " f=" << f << endl;
-
+	cin.get();
 	return 0;
 }
 
