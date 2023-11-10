@@ -1,0 +1,10 @@
+{
+    "cmake.debugConfig":{
+        "console": "externalTerminal"
+    },
+    "files.associations": {
+        "stdexcept": "cpp",
+        "iostream": "cpp",
+        "ostream": "cpp"
+    }
+}
