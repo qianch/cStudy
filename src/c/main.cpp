@@ -3,11 +3,12 @@
 using namespace std;
 
 int abplus(int a, int b);
-int(*abplus1)(int a, int b);
-int main(void) {
-	cout << "Hello CMake!" << endl;
+int (*abplus1)(int a, int b);
+int main(void)
+{
+	cout << "hello cmake!" << endl;
 	int a = 1;
-	int* b = &a;
+	int *b = &a;
 	int c = a++;
 	int d = ++a;
 	abplus1 = abplus;
@@ -16,7 +17,8 @@ int main(void) {
 	cout << "*b:" << *b << endl;
 	cout << "c:" << c << endl;
 	cout << "d:" << d << endl;
-	cout << abplus1(a, *b) << endl;
+	cout << "abplus:" << abplus(a, *b) << endl;
+	cout << "abplus1:" << abplus1(a, *b) << endl;
 
 	int e, f;
 	e = f = 3;
@@ -30,6 +32,7 @@ int main(void) {
 	return 0;
 }
 
-int abplus(int a, int b) {
+int abplus(int a, int b)
+{
 	return a + b;
 }
