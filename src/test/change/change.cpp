@@ -12,6 +12,8 @@ int main()
     cout << "after change1() n=" << n << endl;
     change2(n);
     cout << "after change2() n=" << n << endl;
+    int* m = &n;
+    cout << m << endl;
     change3(&n);
     cout << "after change3() n=" << n << endl;
     return true;

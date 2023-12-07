@@ -27,6 +27,9 @@ int main() {
     k = previous_number_2(j);
 	cout << "i:" << i << " *j:" << *j << " k:" << k << endl;
 
+	k = previous_number_2(&i);
+	cout << "i:" << i << " *j:" << *j << " k:" << k << endl;
+
 	k = previous_number_3(i);
 	cout << "i:" << i << " *j:" << *j << " k:" << k << endl;
 	cin.get();
