@@ -31,8 +31,7 @@ int main()
 	printStudent1(s1);
 	cout << "源结构体的变量：" << "姓名：" << s1.name.data() << "年龄：" << s1.age << endl;
 
-	Student s = { "张三",12 };
-	Student& s2 = s;
+	Student s2 = { "张三",12 };
 	printStudent2(s2);
 	cout << "源结构体的变量：" << "姓名：" << s2.name.data() << "年龄：" << s2.age << endl;
 
