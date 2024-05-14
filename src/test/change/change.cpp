@@ -11,8 +11,8 @@ struct Student
 };
 
 void printStudent1(Student s);
-void printStudent2(Student *s);
-
+void printStudent2(Student &s);
+void printStudent3(Student *s);
 
 int main()
 {
@@ -27,17 +27,25 @@ int main()
 	change3(&n);
 	cout << "after change3() n=" << n << endl;
 
+	Student s1 = { "张三",12 };
+	printStudent1(s1);
+	cout << "源结构体的变量：" << "姓名：" << s1.name.data() << "年龄：" << s1.age << endl;
+
 	Student s = { "张三",12 };
-	printStudent1(s);
-	cout << "源结构体的变量：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
-
-	printStudent2(&s);
-	cout << "源结构体的变量：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
-
-	Student * s2 = new Student();
-	s2->name = "王五";
-	s2->age = 10;
+	Student& s2 = s;
 	printStudent2(s2);
+	cout << "源结构体的变量：" << "姓名：" << s2.name.data() << "年龄：" << s2.age << endl;
+
+	Student s3 = { "张三",12 };
+	printStudent3(&s3);
+	cout << "源结构体的变量：" << "姓名：" << s3.name.data() << "年龄：" << s3.age << endl;
+
+	Student * s4 = new Student();
+	s4->name = "王五";
+	s4->age = 10;
+	printStudent3(s4);
+	cout << "源结构体的变量：" << "姓名：" << s4->name.data() << "年龄：" << s4->age << endl;
+
 	return true;
 }
 
@@ -68,8 +76,14 @@ void printStudent1(Student s)
 	cout << "采用值传递的方式：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
 }
 
-void printStudent2(Student* s)
+void printStudent2(Student& s)
+{
+	s.age = 18;
+	cout << "采用引用传递的方式：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
+}
+
+void printStudent3(Student* s)
 {
 	s->age = 18;
-	cout << "采用值传递的方式：" << "姓名：" << s->name.data() << "年龄：" << s->age << endl;
+	cout << "采用指针传递的方式：" << "姓名：" << s->name.data() << "年龄：" << s->age << endl;
 }
