@@ -7,16 +7,15 @@ void printMessage();
 
 int main()
 {
-    auto x = 10;        // 推断x为整数型
-    auto str = "hello"; // 推断str为字符串型
-
+	//推断x为整数型
+    auto x = 10; 
+	//推断str为字符串型     
+    auto str = "hello"; 
     std::vector<int> numbers = {1, 2, 3, 4, 5};
-
 	//排序
 	std::sort(numbers.begin(),numbers.end(),[](int a,int b){
 		return a > b;
 	});
-
 	//查找
 	int target = 4;
 	auto it = std::find(numbers.begin(), numbers.end(), target);
