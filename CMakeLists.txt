@@ -17,7 +17,7 @@ endif()
 message(STATUS "CMAKE_CXX_STANDARD:${CMAKE_CXX_STANDARD}")
 
 set(CMAKE_EXPORT_COMPILE_COMMANDS OFF)
-project(cstudy VERSION 1.0.0 LANGUAGES C CXX)
+project(cStudy VERSION 1.0.0 LANGUAGES C CXX)
 add_subdirectory(src/catch)
 add_subdirectory(src/test/add)
 add_subdirectory(src/test/change)
