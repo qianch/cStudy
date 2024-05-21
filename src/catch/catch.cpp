@@ -8,8 +8,7 @@ void test(int n)
     if (n == 42) {
         return;
     }
-    throw std::runtime_error(
-        "Not the answer");
+    throw std::runtime_error("Not the answer");
 }
 
 TEST_CASE("case1", "[tcase1]")
@@ -29,3 +28,4 @@ TEST_CASE("case2", "[tcase2]")
     CHECK(1 == 1);
     CHECK(1 == 2);
 }
+
