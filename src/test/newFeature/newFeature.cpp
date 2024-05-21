@@ -1,10 +1,17 @@
-#include <iostream>
+﻿#include <iostream>
 #include <vector>
 #include <algorithm>
 #include <thread>
 
-void printMessage();
-
+// 线程函数
+void printMessage()
+{
+    std::cout << "hello from thread!" << std::endl;
+}
+//函数返回类型推导
+auto func(int i) {
+    return i;
+}
 int main()
 {
 	//推断x为整数型
@@ -34,12 +41,6 @@ int main()
     std::thread t(printMessage);
     std::cout << "hello from main thread!" << std::endl;
     t.join();
-
+	std::cout <<"函数返回类型推导："<<func(4) << std::endl;
     return 0;
-}
-
-// 线程函数
-void printMessage()
-{
-    std::cout << "hello from thread!" << std::endl;
 }
