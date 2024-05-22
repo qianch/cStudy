@@ -13,6 +13,13 @@ auto func(int i)
 {
 	return i;
 }
+// 模板支持返回值类型推导
+template <typename T>
+auto func(T t)
+{
+	return t;
+}
+
 int main()
 {
 	// 推断x为整数型
@@ -42,5 +49,7 @@ int main()
 	std::cout << "hello from main thread!" << std::endl;
 	t.join();
 	std::cout << "函数返回类型推导：" << func(4) << std::endl;
+	std::cout << "模板函数返回类型推导：" << func(3.4) << std::endl;
+	std::cout << "模板函数返回类型推导：" << func("template") << std::endl;
 	return 0;
 }
