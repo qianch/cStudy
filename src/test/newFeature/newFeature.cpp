@@ -20,6 +20,12 @@ auto func(T t)
 	return t;
 }
 
+//lambda类型推导
+auto f = [](auto a)
+{
+	return a;
+};
+
 int main()
 {
 	// 推断x为整数型
@@ -51,6 +57,7 @@ int main()
 	std::cout << "函数返回类型推导：" << func(4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func(3.4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func("template") << std::endl;
+	std::cout << "模板函数返回类型推导：" << func(1) << std::endl;
 	//对捕获的变量和引用进行初始化
 	auto y = [&r = x, x = x + 1]()->int
 	{
