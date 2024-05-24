@@ -51,5 +51,12 @@ int main()
 	std::cout << "函数返回类型推导：" << func(4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func(3.4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func("template") << std::endl;
+	//对捕获的变量和引用进行初始化
+	auto y = [&r = x, x = x + 1]()->int
+	{
+		r += 2;
+		return x * x;
+	}(); 
+	std::cout << "x = " << x << " y = " << y << std::endl;
 	return 0;
 }
