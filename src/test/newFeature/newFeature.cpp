@@ -47,9 +47,15 @@ int main()
 	{
 		std::cout << "not find" << target << std::endl;
 	}
-	// 使用Lambda表达式打印每个元素
+	//cpp11基于范围的for循环
+	for (int i : numbers)
+	{
+		std::cout << "cpp11基于范围的for循环" << i << std::endl;
+	}
+	
+	// cpp14基于Lambda表达式打印每个元素
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
-				  { std::cout << num << std::endl; });
+				  { std::cout << "cpp14 Lambda表达式" << num << std::endl; });
 
 	std::thread t(printMessage);
 	std::cout << "hello from main thread!" << std::endl;
