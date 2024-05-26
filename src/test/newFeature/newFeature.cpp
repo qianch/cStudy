@@ -20,7 +20,7 @@ auto func(T t)
 	return t;
 }
 
-//lambda类型推导
+// lambda类型推导
 auto f = [](auto a)
 {
 	return a;
@@ -45,17 +45,24 @@ int main()
 	}
 	else
 	{
-		std::cout << "not find" << target << std::endl;
+		std::cout << "not find:" << target << std::endl;
 	}
-	//cpp11基于范围的for循环
+
+	// before c++11
+	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
+	{
+		std::cout << "before cpp 11:" << *iter << std::endl;
+	}
+
+	// cpp11基于范围的for循环
 	for (int i : numbers)
 	{
-		std::cout << "cpp11基于范围的for循环" << i << std::endl;
+		std::cout << "cpp11基于范围的for循环:" << i << std::endl;
 	}
-	
+
 	// cpp14基于Lambda表达式打印每个元素
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
-				  { std::cout << "cpp14 Lambda表达式" << num << std::endl; });
+				  { std::cout << "cpp14 Lambda表达式:" << num << std::endl; });
 
 	std::thread t(printMessage);
 	std::cout << "hello from main thread!" << std::endl;
@@ -64,12 +71,12 @@ int main()
 	std::cout << "模板函数返回类型推导：" << func(3.4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func("template") << std::endl;
 	std::cout << "模板函数返回类型推导：" << func(1) << std::endl;
-	//对捕获的变量和引用进行初始化
-	auto y = [&r = x, x = x + 1]()->int
+	// 对捕获的变量和引用进行初始化
+	auto y = [&r = x, x = x + 1]() -> int
 	{
 		r += 2;
 		return x * x;
-	}(); 
+	}();
 	std::cout << "x = " << x << " y = " << y << std::endl;
 	return 0;
 }
