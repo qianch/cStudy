@@ -30,8 +30,11 @@ int main()
 {
 	// 推断x为整数型
 	auto x = 10;
-	// 推断str为字符串型
-	auto str = "hello";
+
+	std::string s ("Hello");
+	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
+	std::cout << s.c_str() << std::endl;
+
 	std::vector<int> numbers = {1, 2, 3, 4, 5};
 	// 排序
 	std::sort(numbers.begin(), numbers.end(), [](int a, int b)
