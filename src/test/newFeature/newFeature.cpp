@@ -2,6 +2,7 @@
 #include <vector>
 #include <algorithm>
 #include <thread>
+#include <array>
 
 // 线程函数
 void printMessage()
@@ -82,17 +83,19 @@ int main()
 	}();
 	std::cout << "x = " << x << " y = " << y << std::endl;
 
-	// 定义 a 数组，当前数组长度为 0，但和普通数组不同的是，此数组 a 可以根据存储数据的数量自动变长。
-	std::vector<int> a;
-	// 向数组 a 中添加 10 个元素
-	for (int i = 0; i < 10; i++)
-		a.push_back(i);
-	// 还可以手动调整数组 a 的大小
-	a.resize(100);
-	a[90] = 100;
-	// 还可以直接删除数组 a 中所有的元素，此时 a 的长度变为 0
-	a.clear();
-	// 重新调整 a 的大小为 20，并存储 20 个 -1 元素。
-	a.resize(20, -1);
+	//array
+	std::array<int, 4> values{};
+    //初始化 values 容器为 {0,1,2,3}
+    for (int i = 0; i < values.size(); i++) {
+        values.at(i) = i;
+    }
+    //使用 get() 重载函数输出指定位置元素
+    std::cout << std::get<3>(values) << std::endl;
+    //如果容器不为空，则输出容器中所有的元素
+    if (!values.empty()) {
+        for (auto val = values.begin(); val < values.end(); val++) {
+            std::cout << *val << " ";
+        }
+    }
 	return 0;
 }
