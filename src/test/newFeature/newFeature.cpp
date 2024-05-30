@@ -1,8 +1,9 @@
 ﻿#include <iostream>
-#include <vector>
 #include <algorithm>
 #include <thread>
 #include <array>
+#include <vector>
+#include <deque>
 
 // 线程函数
 void printMessage()
@@ -29,13 +30,10 @@ auto f = [](auto a)
 
 int main()
 {
-	// 推断x为整数型
-	auto x = 10;
-
-	std::string s("Hello");
+	std::string s = "Hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
 	std::cout << s.c_str() << std::endl;
-
+	// vector 动态数组
 	std::vector<int> numbers = {1, 2, 3, 4, 5};
 	// 排序
 	std::sort(numbers.begin(), numbers.end(), [](int a, int b)
@@ -76,6 +74,7 @@ int main()
 	std::cout << "模板函数返回类型推导：" << func("template") << std::endl;
 	std::cout << "模板函数返回类型推导：" << func(1) << std::endl;
 	// 对捕获的变量和引用进行初始化
+	auto x = 0;
 	auto y = [&r = x, x = x + 1]() -> int
 	{
 		r += 2;
@@ -83,19 +82,30 @@ int main()
 	}();
 	std::cout << "x = " << x << " y = " << y << std::endl;
 
-	//array
+	// array 静态数组
 	std::array<int, 4> values{};
-    //初始化 values 容器为 {0,1,2,3}
-    for (int i = 0; i < values.size(); i++) {
-        values.at(i) = i;
-    }
-    //使用 get() 重载函数输出指定位置元素
-    std::cout << std::get<3>(values) << std::endl;
-    //如果容器不为空，则输出容器中所有的元素
-    if (!values.empty()) {
-        for (auto val = values.begin(); val < values.end(); val++) {
-            std::cout << *val << " ";
-        }
-    }
+	// 初始化 values 容器为 {0,1,2,3}
+	for (auto i = 0; i < values.size(); i++)
+	{
+		values.at(i) = i;
+	}
+	// 使用 get() 重载函数输出指定位置元素
+	std::cout << std::get<3>(values) << std::endl;
+	// 如果容器不为空，则输出容器中所有的元素
+	if (!values.empty())
+	{
+		for (auto val = values.begin(); val < values.end(); val++)
+		{
+			std::cout << *val << " ";
+		}
+	}
+
+	// deque容器
+	std::deque<int> d(10, 5);
+	// 使用迭代器遍历容器
+	for (auto i = d.begin(); i < d.end(); i++)
+	{
+		std::cout << *i << " ";
+	}
 	return 0;
 }

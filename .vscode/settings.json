@@ -50,6 +50,7 @@
         "xtr1common": "cpp",
         "xutility": "cpp",
         "array": "cpp",
-        "iterator": "cpp"
+        "iterator": "cpp",
+        "deque": "cpp"
     }
 }
