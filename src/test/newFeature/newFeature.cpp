@@ -4,6 +4,7 @@
 #include <array>
 #include <vector>
 #include <deque>
+#include <list>
 
 // 线程函数
 void printMessage()
@@ -85,7 +86,7 @@ int main()
 	// array 静态数组
 	std::array<int, 4> values{};
 	// 初始化 values 容器为 {0,1,2,3}
-	for (auto i = 0; i < values.size(); i++)
+	for (unsigned int i = 0; i < values.size(); i++)
 	{
 		values.at(i) = i;
 	}
@@ -107,5 +108,15 @@ int main()
 	{
 		std::cout << *i << " ";
 	}
+
+	// list容器
+	std::list<int> lst{1, 2, 3, 4};
+	int &first = lst.front();
+	int &last = lst.back();
+	std::cout << first << " " << last << std::endl;
+	first = 10;
+	last = 20;
+	std::cout << lst.front() << " " << lst.back() << std::endl;
+
 	return 0;
 }
