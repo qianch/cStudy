@@ -51,6 +51,7 @@
         "xutility": "cpp",
         "array": "cpp",
         "iterator": "cpp",
-        "deque": "cpp"
+        "deque": "cpp",
+        "xtree": "cpp"
     }
 }
