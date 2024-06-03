@@ -52,6 +52,7 @@
         "array": "cpp",
         "iterator": "cpp",
         "deque": "cpp",
-        "xtree": "cpp"
+        "xtree": "cpp",
+        "map": "cpp"
     }
 }
