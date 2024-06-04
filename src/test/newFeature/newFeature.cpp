@@ -6,6 +6,7 @@
 #include <deque>
 #include <list>
 #include <map>
+#include <unordered_map>
 
 // 线程函数
 void printMessage()
@@ -135,6 +136,21 @@ int main()
 		{
 			std::cout << i->first.data() << " " << i->second.data() << std::endl;
 		}
+	}
+
+	// 创建并初始化一个 unordered_map 容器，其存储的 <string,string> 类型的键值对
+	std::unordered_map<std::string, std::string> my_uMap{
+		{"D", "4"},
+		{"E", "5"},
+		{"F", "6"}};
+	// 查找指定键对应的值，效率比关联式容器高
+	std::string str = my_uMap.at("D");
+	std::cout << "str = " << str.data() << std::endl;
+	// 使用迭代器遍历哈希容器，效率不如关联式容器
+	for (auto iter = my_uMap.begin(); iter != my_uMap.end(); ++iter)
+	{
+		// pair 类型键值对分为 2 部分
+		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
 	}
 	return 0;
 }
