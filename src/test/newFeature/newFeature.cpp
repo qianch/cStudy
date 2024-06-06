@@ -126,6 +126,7 @@ int main()
 	myMap.emplace("A", "1");
 	myMap.emplace("B", "2");
 	myMap.emplace("C", "3");
+	myMap["Insert AA"] = "11";
 	// 输出当前 myMap 容器存储键值对的个数
 	std::cout << "myMap size==" << myMap.size() << std::endl;
 	// 判断当前 myMap 容器是否为空
