@@ -54,6 +54,19 @@
         "deque": "cpp",
         "xtree": "cpp",
         "map": "cpp",
-        "xthread": "cpp"
+        "xthread": "cpp",
+        "atomic": "cpp",
+        "cctype": "cpp",
+        "charconv": "cpp",
+        "condition_variable": "cpp",
+        "cstdarg": "cpp",
+        "fstream": "cpp",
+        "locale": "cpp",
+        "mutex": "cpp",
+        "sstream": "cpp",
+        "xlocbuf": "cpp",
+        "xlocmes": "cpp",
+        "xlocmon": "cpp",
+        "xloctime": "cpp"
     }
 }

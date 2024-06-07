@@ -7,6 +7,9 @@
 #include <list>
 #include <map>
 #include <unordered_map>
+#include "spdlog/spdlog.h"
+#include "spdlog/cfg/env.h"  // support for loading levels from the environment variable
+#include "spdlog/fmt/ostr.h" // support for user defined types
 
 // 线程函数
 void printMessage()
@@ -135,7 +138,7 @@ int main()
 		// 借助 myMap 容器迭代器，将该容器的键值对逐个输出
 		for (auto i = myMap.begin(); i != myMap.end(); ++i)
 		{
-			std::cout << i->first.data() << " " << i->second.data() << std::endl;
+			spdlog::info("first:{},second:{}",i->first.data(),i->second.data());
 		}
 	}
 
