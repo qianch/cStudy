@@ -169,7 +169,7 @@ int main()
     std::reverse_iterator<std::list<int>::iterator> begin = lst.rbegin();
     std::reverse_iterator<std::list<int>::iterator> end = lst.rend();
     while (begin != end) {
-        std::cout << *begin << " ";
+        spdlog::warn(*begin);
         //注意，这里是 ++，因为反向迭代器内部互换了 ++ 和 -- 的含义
         ++begin;
     }
