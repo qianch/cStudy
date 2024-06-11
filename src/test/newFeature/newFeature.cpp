@@ -10,7 +10,9 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/cfg/env.h"  // support for loading levels from the environment variable
 #include "spdlog/fmt/ostr.h" // support for user defined types
+#include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/daily_file_sink.h"
+#include "spdlog/async.h"
 
 // 线程函数
 void printMessage()
@@ -38,7 +40,12 @@ auto f = [](auto a)
 int main()
 {
 	auto daily_logger = spdlog::daily_logger_mt("daily_logger", "logs/daily.txt", 2, 30);
-	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l) { l->info("new feature."); });
+	daily_logger->info("from daily_logger");	
+	auto basic_logger = spdlog::basic_logger_mt("file_logger", "logs/basic-log.txt", true);
+	basic_logger->info("from basic_logger");
+	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
+	async_file->info("from async_file");
+	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l) { l->info("from apply_all"); });
 
 	std::string s = "Hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
