@@ -13,6 +13,7 @@
 #include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/daily_file_sink.h"
 #include "spdlog/async.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 // 线程函数
 void printMessage()
@@ -46,7 +47,9 @@ int main()
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("from async_file");
 	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l) { l->info("from apply_all"); });
-
+    auto console = spdlog::stdout_color_mt("console");
+	console->info("from spdlog console");
+	
 	std::string s = "Hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
 	std::cout << s.c_str() << std::endl;
