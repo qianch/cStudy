@@ -8,12 +8,13 @@
 #include <map>
 #include <unordered_map>
 #include "spdlog/spdlog.h"
-#include "spdlog/cfg/env.h"  // support for loading levels from the environment variable
+#include "spdlog/cfg/env.h"	 // support for loading levels from the environment variable
 #include "spdlog/fmt/ostr.h" // support for user defined types
 #include "spdlog/sinks/basic_file_sink.h"
 #include "spdlog/sinks/daily_file_sink.h"
 #include "spdlog/async.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
+#include "spdlog/stopwatch.h"
 
 // 线程函数
 void printMessage()
@@ -40,16 +41,19 @@ auto f = [](auto a)
 
 int main()
 {
+	spdlog::stopwatch sw;
 	auto daily_logger = spdlog::daily_logger_mt("daily_logger", "logs/daily.txt", 2, 30);
-	daily_logger->info("from daily_logger");	
+	daily_logger->info("from daily_logger");
 	auto basic_logger = spdlog::basic_logger_mt("file_logger", "logs/basic-log.txt", true);
 	basic_logger->info("from basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("from async_file");
-	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l) { l->info("from apply_all"); });
-    auto console = spdlog::stdout_color_mt("console");
+	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
+					  { l->info("from apply_all"); });
+	auto console = spdlog::stdout_color_mt("console");
 	console->info("from spdlog console");
-	
+	spdlog::info("Stopwatch: {} seconds", sw);
+
 	std::string s = "Hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
 	std::cout << s.c_str() << std::endl;
@@ -152,7 +156,7 @@ int main()
 		// 借助 myMap 容器迭代器，将该容器的键值对逐个输出
 		for (auto i = myMap.begin(); i != myMap.end(); ++i)
 		{
-			spdlog::info("first:{},second:{}",i->first.data(),i->second.data());
+			spdlog::info("first:{},second:{}", i->first.data(), i->second.data());
 		}
 	}
 
@@ -179,13 +183,14 @@ int main()
 		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
 	}
 
-	//找到遍历的起点和终点，这里无需纠结定义反向迭代器的语法
-    std::reverse_iterator<std::list<int>::iterator> begin = lst.rbegin();
-    std::reverse_iterator<std::list<int>::iterator> end = lst.rend();
-    while (begin != end) {
-        spdlog::warn(*begin);
-        //注意，这里是 ++，因为反向迭代器内部互换了 ++ 和 -- 的含义
-        ++begin;
-    }
+	// 找到遍历的起点和终点，这里无需纠结定义反向迭代器的语法
+	std::reverse_iterator<std::list<int>::iterator> begin = lst.rbegin();
+	std::reverse_iterator<std::list<int>::iterator> end = lst.rend();
+	while (begin != end)
+	{
+		spdlog::warn(*begin);
+		// 注意，这里是 ++，因为反向迭代器内部互换了 ++ 和 -- 的含义
+		++begin;
+	}
 	return 0;
 }
