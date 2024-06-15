@@ -182,15 +182,6 @@ int main()
 		// pair 类型键值对分为 2 部分
 		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
 	}
-
-	// 找到遍历的起点和终点，这里无需纠结定义反向迭代器的语法
-	std::reverse_iterator<std::list<int>::iterator> begin = lst.rbegin();
-	std::reverse_iterator<std::list<int>::iterator> end = lst.rend();
-	while (begin != end)
-	{
-		spdlog::warn(*begin);
-		// 注意，这里是 ++，因为反向迭代器内部互换了 ++ 和 -- 的含义
-		++begin;
-	}
+	
 	return 0;
 }
