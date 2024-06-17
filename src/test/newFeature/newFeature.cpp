@@ -43,16 +43,16 @@ int main()
 {
 	spdlog::stopwatch sw;
 	auto daily_logger = spdlog::daily_logger_mt("daily_logger", "logs/daily.txt", 2, 30);
-	daily_logger->info("from daily_logger");
+	daily_logger->info("daily_logger");
 	auto basic_logger = spdlog::basic_logger_mt("file_logger", "logs/basic-log.txt", true);
-	basic_logger->info("from basic_logger");
+	basic_logger->info("basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
-	async_file->info("from async_file");
+	async_file->info("async_file");
 	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
-					  { l->info("from apply_all"); });
+					  { l->info("apply_all"); });
 	auto console = spdlog::stdout_color_mt("console");
-	console->info("from spdlog console");
-	spdlog::info("Stopwatch: {} seconds", sw);
+	console->info("spdlog console");
+	spdlog::info("stop_watch: {} seconds", sw);
 
 	std::string s = "Hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
