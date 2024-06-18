@@ -54,7 +54,7 @@ int main()
 	console->info("spdlog console");
 	spdlog::info("stop_watch: {} seconds", sw);
 
-	std::string s = "Hello";
+	std::string s = "hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
 	std::cout << s.c_str() << std::endl;
 	// vector 动态数组
@@ -74,19 +74,19 @@ int main()
 		std::cout << "not find:" << target << std::endl;
 	}
 
-	// before c++11
+	// before cpp11
 	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
 	{
 		std::cout << "before cpp 11:" << *iter << std::endl;
 	}
 
-	// cpp11基于范围的for循环
+	// after cpp11
 	for (int i : numbers)
 	{
 		std::cout << "cpp11基于范围的for循环:" << i << std::endl;
 	}
 
-	// cpp14基于Lambda表达式打印每个元素
+	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
 				  { std::cout << "cpp14 Lambda表达式:" << num << std::endl; });
 
