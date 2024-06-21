@@ -147,7 +147,7 @@ int main()
 	myMap.emplace("A", "1");
 	myMap.emplace("B", "2");
 	myMap.emplace("C", "3");
-	myMap["Insert AA"] = "11";
+	myMap["AA"] = "11";
 	// 输出当前 myMap 容器存储键值对的个数
 	std::cout << "myMap size==" << myMap.size() << std::endl;
 	// 判断当前 myMap 容器是否为空
@@ -166,13 +166,13 @@ int main()
 		{"E", "5"},
 		{"F", "6"}};
 	// 构建要添加的键值对
-	std::pair<std::string, std::string> mypair("Insert G", "7");
+	std::pair<std::string, std::string> mypair("G", "7");
 	// 创建接收 insert() 方法返回值的pair类型变量
 	std::pair<std::unordered_map<std::string, std::string>::iterator, bool> ret;
 	// 调用 insert() 方法的第一种语法格式
 	ret = my_uMap.insert(mypair);
 	// 调用 insert() 方法的第二种语法格式
-	ret = my_uMap.insert(std::make_pair("Insert H", "8"));
+	ret = my_uMap.insert(std::make_pair("H", "8"));
 	// 查找指定键对应的值，效率比关联式容器高
 	std::string str = my_uMap.at("D");
 	std::cout << "str = " << str.data() << std::endl;
@@ -182,6 +182,6 @@ int main()
 		// pair 类型键值对分为 2 部分
 		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
 	}
-	
+
 	return 0;
 }
