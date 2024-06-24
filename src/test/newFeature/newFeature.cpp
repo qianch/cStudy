@@ -69,10 +69,6 @@ int main()
 	{
 		std::cout << "find:" << target << ",index:" << std::distance(numbers.begin(), it) << std::endl;
 	}
-	else
-	{
-		std::cout << "not find:" << target << std::endl;
-	}
 
 	// before cpp11
 	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
