@@ -48,11 +48,12 @@ int main()
 	basic_logger->info("basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("async_file");
-	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
-					  { l->info("apply_all"); });
 	auto console = spdlog::stdout_color_mt("console");
 	console->info("spdlog console");
 	spdlog::info("stop_watch: {} seconds", sw);
+	//every logger will receive messsage
+	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
+					  { l->info("apply_all"); });
 
 	std::string s = "hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
@@ -79,12 +80,12 @@ int main()
 	// after cpp11
 	for (int i : numbers)
 	{
-		std::cout << "cpp11基于范围的for循环:" << i << std::endl;
+		std::cout << "cpp11 for:" << i << std::endl;
 	}
 
 	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
-				  { std::cout << "cpp14 Lambda表达式:" << num << std::endl; });
+				  { std::cout << "cpp14 Lambda:" << num << std::endl; });
 
 	std::thread t(printMessage);
 	std::cout << "hello from main thread!" << std::endl;
