@@ -19,7 +19,7 @@
 // 线程函数
 void printMessage()
 {
-	std::cout << "hello from thread!" << std::endl;
+	std::cout << "from thread!" << std::endl;
 }
 // 函数返回类型推导
 auto func(int i)
@@ -88,7 +88,7 @@ int main()
 				  { std::cout << "cpp14 Lambda:" << num << std::endl; });
 
 	std::thread t(printMessage);
-	std::cout << "hello from main thread!" << std::endl;
+	std::cout << "from main thread!" << std::endl;
 	t.join();
 	std::cout << "函数返回类型推导：" << func(4) << std::endl;
 	std::cout << "模板函数返回类型推导：" << func(3.4) << std::endl;
@@ -133,7 +133,7 @@ int main()
 	std::list<int> lst{1, 2, 3, 4};
 	int &first = lst.front();
 	int &last = lst.back();
-	std::cout << first << " " << last << std::endl;
+	std::cout << "first:" << first << ",last:" << last << std::endl;
 	first = 10;
 	last = 20;
 	std::cout << lst.front() << " " << lst.back() << std::endl;
