@@ -7,6 +7,7 @@
 #include <list>
 #include <map>
 #include <unordered_map>
+#include <set>
 #include "spdlog/spdlog.h"
 #include "spdlog/cfg/env.h"	 // support for loading levels from the environment variable
 #include "spdlog/fmt/ostr.h" // support for user defined types
@@ -44,14 +45,14 @@ int main()
 	spdlog::stopwatch sw;
 	auto daily_logger = spdlog::daily_logger_mt("daily_logger", "logs/daily.txt", 2, 30);
 	daily_logger->info("daily_logger");
-	auto basic_logger = spdlog::basic_logger_mt("file_logger", "logs/basic-log.txt", true);
+	auto basic_logger = spdlog::basic_logger_mt("file_logger", "logs/basic_log.txt", true);
 	basic_logger->info("basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("async_file");
 	auto console = spdlog::stdout_color_mt("console");
 	console->info("spdlog console");
 	spdlog::info("stop_watch: {} seconds", sw);
-	//every logger will receive messsage
+	// every logger will receive messsage
 	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
 					  { l->info("apply_all"); });
 
@@ -74,13 +75,13 @@ int main()
 	// before cpp11
 	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
 	{
-		std::cout << "before cpp 11:" << *iter << std::endl;
+		std::cout << "before cpp11:" << *iter << std::endl;
 	}
 
 	// after cpp11
 	for (int i : numbers)
 	{
-		std::cout << "cpp11 for:" << i << std::endl;
+		std::cout << "after cpp11:" << i << std::endl;
 	}
 
 	// cpp14 Lambda print element
@@ -179,6 +180,8 @@ int main()
 		// pair 类型键值对分为 2 部分
 		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
 	}
-
+	std::set<std::string> myset{"a", "b", "c"};
+	std::cout << "myset.size:" << myset.size() << std::endl;
+	
 	return 0;
 }
