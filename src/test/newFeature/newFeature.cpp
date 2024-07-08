@@ -40,6 +40,11 @@ auto f = [](auto a)
 	return a;
 };
 
+//自定义一元谓词函数
+bool mycomp(int i) {
+    return ((i % 2) == 1);
+}
+
 int main()
 {
 	spdlog::stopwatch sw;
@@ -59,12 +64,12 @@ int main()
 	std::string s = "hello";
 	std::transform(s.begin(), s.end(), s.begin(), ::toupper);
 	std::cout << s.c_str() << std::endl;
-	// vector 动态数组
+	// vector
 	std::vector<int> numbers = {1, 2, 3, 4, 5};
-	// 排序
+	// sort
 	std::sort(numbers.begin(), numbers.end(), [](int a, int b)
 			  { return a > b; });
-	// 查找
+	// find
 	int target = 4;
 	auto it = std::find(numbers.begin(), numbers.end(), target);
 	if (it != numbers.end())
@@ -72,17 +77,14 @@ int main()
 		std::cout << "find:" << target << ",index:" << std::distance(numbers.begin(), it) << std::endl;
 	}
 
-	// before cpp11
-	for (auto iter = numbers.begin(); iter != numbers.end(); iter++)
-	{
-		std::cout << "before cpp11:" << *iter << std::endl;
-	}
-
 	// after cpp11
 	for (int i : numbers)
 	{
 		std::cout << "after cpp11:" << i << std::endl;
 	}
+
+    std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
+	std::cout << "myItems:" << *myItem << std::endl;
 
 	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
