@@ -40,9 +40,10 @@ auto f = [](auto a)
 	return a;
 };
 
-//自定义一元谓词函数
-bool mycomp(int i) {
-    return ((i % 2) == 1);
+// 自定义一元谓词函数
+bool mycomp(int i)
+{
+	return ((i % 2) == 1);
 }
 
 int main()
@@ -83,7 +84,7 @@ int main()
 		std::cout << "after cpp11:" << i << std::endl;
 	}
 
-    std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
+	std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
 	std::cout << "myItems:" << *myItem << std::endl;
 
 	// cpp14 Lambda print element
@@ -184,6 +185,12 @@ int main()
 	}
 	std::set<std::string> myset{"a", "b", "c"};
 	std::cout << "myset.size:" << myset.size() << std::endl;
-	
+
+	//unique(STL unique)算法
+	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two"};
+	auto end_iter = std::unique(std::begin(words), std::end(words));
+	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
+	std::cout << std::endl;
+	std::cout << "end" << std::endl;
 	return 0;
 }
