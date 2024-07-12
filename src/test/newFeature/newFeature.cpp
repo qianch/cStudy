@@ -186,11 +186,17 @@ int main()
 	std::set<std::string> myset{"a", "b", "c"};
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
-	//unique(STL unique)算法
-	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two"};
+	// unique(STL unique)
+	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
 	auto end_iter = std::unique(std::begin(words), std::end(words));
 	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl;
-	std::cout << "end" << std::endl;
+	
+	// rotate(STL rotate)
+	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
+	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
+	std::cout << std::endl
+			  << "First element before rotation: " << *iter << std::endl;
+
 	return 0;
 }
