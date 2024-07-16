@@ -186,8 +186,15 @@ int main()
 	std::set<std::string> myset{"a", "b", "c"};
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
-	// unique(STL unique)
 	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
+
+	//adjacent_find 查找 2 个连续相等的元素
+	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
+    if (word != words.end()) {
+        std::cout << "one : " << *it << std::endl;
+    }
+
+	// unique(STL unique)
 	auto end_iter = std::unique(std::begin(words), std::end(words));
 	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl;
