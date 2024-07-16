@@ -191,7 +191,7 @@ int main()
 	//adjacent_find 查找 2 个连续相等的元素
 	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
     if (word != words.end()) {
-        std::cout << "one : " << *it << std::endl;
+        std::cout << "same word : " << *word << std::endl;
     }
 
 	// unique(STL unique)
