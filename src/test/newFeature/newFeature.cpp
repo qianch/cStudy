@@ -55,8 +55,6 @@ int main()
 	basic_logger->info("basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("async_file");
-	auto console = spdlog::stdout_color_mt("console");
-	console->info("spdlog console");
 	spdlog::info("stop_watch: {} seconds", sw);
 	// every logger will receive messsage
 	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
@@ -194,16 +192,17 @@ int main()
         std::cout << "same word : " << *word << std::endl;
     }
 
-	// unique(STL unique)
+	//STL unique
 	auto end_iter = std::unique(std::begin(words), std::end(words));
 	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl;
 	
-	// rotate(STL rotate)
+	//STL rotate
 	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
 	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl
 			  << "First element before rotation: " << *iter << std::endl;
-
+	//STL move
+	std::move(std::begin(words) + 2, std::end(words), std::begin(words));
 	return 0;
 }
