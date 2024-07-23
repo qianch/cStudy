@@ -185,24 +185,27 @@ int main()
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
 	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
-
-	//adjacent_find 查找 2 个连续相等的元素
+	//replace_copy
+	std::vector<std::string> new_words;
+	std::replace_copy (std::begin (words), std::end(words), std::back_inserter (new_words), std::string{"one"}, std::string{"0"});
+	// adjacent_find 查找 2 个连续相等的元素
 	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
-    if (word != words.end()) {
-        std::cout << "same word : " << *word << std::endl;
-    }
+	if (word != words.end())
+	{
+		std::cout << "same word : " << *word << std::endl;
+	}
 
-	//STL unique
+	// STL unique
 	auto end_iter = std::unique(std::begin(words), std::end(words));
 	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl;
-	
-	//STL rotate
+
+	// STL rotate
 	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
 	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl
 			  << "First element before rotation: " << *iter << std::endl;
-	//STL move
+	// STL move
 	std::move(std::begin(words) + 2, std::end(words), std::begin(words));
 	return 0;
 }
