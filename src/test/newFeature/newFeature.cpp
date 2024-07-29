@@ -84,6 +84,8 @@ int main()
 
 	std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
 	std::cout << "myItems:" << *myItem << std::endl;
+	std::advance(myItem, 1);
+	std::cout << "myItems advance 1:" << *myItem << std::endl;
 
 	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
@@ -185,9 +187,9 @@ int main()
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
 	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
-	//replace_copy
+	// replace_copy
 	std::vector<std::string> new_words;
-	std::replace_copy (std::begin (words), std::end(words), std::back_inserter (new_words), std::string{"one"}, std::string{"0"});
+	std::replace_copy(std::begin(words), std::end(words), std::back_inserter(new_words), std::string{"one"}, std::string{"0"});
 	// adjacent_find 查找 2 个连续相等的元素
 	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
 	if (word != words.end())
