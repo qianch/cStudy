@@ -85,7 +85,9 @@ int main()
 	std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
 	std::cout << "myItems:" << *myItem << std::endl;
 	std::advance(myItem, 1);
-	std::cout << "myItems advance 1:" << *myItem << std::endl;
+	std::cout << "myItem advance 1:" << *myItem << std::endl;
+	std::vector<int>::iterator newIt = std::prev(myItem, 1);
+	std::cout << "newItem prev 2:" << *newIt << std::endl;
 
 	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
