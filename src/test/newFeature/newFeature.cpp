@@ -196,7 +196,7 @@ int main()
 	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
 	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl
-			  << "First element before rotation: " << *iter << std::endl;
+			  << "first element before rotation: " << *iter << std::endl;
 
 	return 0;
 }

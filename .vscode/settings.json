@@ -69,6 +69,7 @@
         "xlocmon": "cpp",
         "xloctime": "cpp",
         "iomanip": "cpp",
-        "set": "cpp"
+        "set": "cpp",
+        "future": "cpp"
     }
 }
