@@ -55,8 +55,6 @@ int main()
 	basic_logger->info("basic_logger");
 	auto async_file = spdlog::basic_logger_mt<spdlog::async_factory>("async_file_logger", "logs/async_log.txt");
 	async_file->info("async_file");
-	auto console = spdlog::stdout_color_mt("console");
-	console->info("spdlog console");
 	spdlog::info("stop_watch: {} seconds", sw);
 	// every logger will receive messsage
 	spdlog::apply_all([&](std::shared_ptr<spdlog::logger> l)
@@ -86,6 +84,10 @@ int main()
 
 	std::vector<int>::iterator myItem = std::find_if(numbers.begin(), numbers.end(), mycomp);
 	std::cout << "myItems:" << *myItem << std::endl;
+	std::advance(myItem, 1);
+	std::cout << "myItem advance 1:" << *myItem << std::endl;
+	std::vector<int>::iterator newIt = std::prev(myItem, 1);
+	std::cout << "newItem prev 2:" << *newIt << std::endl;
 
 	// cpp14 Lambda print element
 	std::for_each(numbers.begin(), numbers.end(), [](int num)
@@ -186,13 +188,23 @@ int main()
 	std::set<std::string> myset{"a", "b", "c"};
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
-	// unique(STL unique)
 	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
+	// replace_copy
+	std::vector<std::string> new_words;
+	std::replace_copy(std::begin(words), std::end(words), std::back_inserter(new_words), std::string{"one"}, std::string{"0"});
+	// adjacent_find 查找 2 个连续相等的元素
+	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
+	if (word != words.end())
+	{
+		std::cout << "same word : " << *word << std::endl;
+	}
+
+	// STL unique
 	auto end_iter = std::unique(std::begin(words), std::end(words));
 	std::copy(std::begin(words), end_iter, std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl;
-	
-	// rotate(STL rotate)
+
+	// STL rotate
 	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
 	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl
