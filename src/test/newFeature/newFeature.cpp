@@ -147,10 +147,10 @@ int main()
 	// map容器,默认为less升序,此处设置为greater降序
 	std::map<std::string, std::string, std::greater<std::string>> myMap;
 	// 调用 emplace() 方法，直接向 myMap 容器中指定位置构造新键值对
-	myMap.emplace("A", "1");
-	myMap.emplace("B", "2");
-	myMap.emplace("C", "3");
-	myMap["AA"] = "11";
+	myMap.emplace("a", "1");
+	myMap.emplace("b", "2");
+	myMap.emplace("c", "3");
+	myMap["aa"] = "11";
 	// 输出当前 myMap 容器存储键值对的个数
 	std::cout << "myMap size==" << myMap.size() << std::endl;
 	// 判断当前 myMap 容器是否为空
@@ -165,19 +165,19 @@ int main()
 
 	// 创建并初始化一个 unordered_map 容器，其存储的 <string,string> 类型的键值对
 	std::unordered_map<std::string, std::string> my_uMap{
-		{"D", "4"},
-		{"E", "5"},
-		{"F", "6"}};
+		{"d", "4"},
+		{"e", "5"},
+		{"f", "6"}};
 	// 构建要添加的键值对
-	std::pair<std::string, std::string> mypair("G", "7");
+	std::pair<std::string, std::string> mypair("g", "7");
 	// 创建接收 insert() 方法返回值的pair类型变量
 	std::pair<std::unordered_map<std::string, std::string>::iterator, bool> ret;
 	// 调用 insert() 方法的第一种语法格式
 	ret = my_uMap.insert(mypair);
 	// 调用 insert() 方法的第二种语法格式
-	ret = my_uMap.insert(std::make_pair("H", "8"));
+	ret = my_uMap.insert(std::make_pair("h", "8"));
 	// 查找指定键对应的值，效率比关联式容器高
-	std::string str = my_uMap.at("D");
+	std::string str = my_uMap.at("d");
 	std::cout << "str = " << str.data() << std::endl;
 	// 使用迭代器遍历哈希容器，效率不如关联式容器
 	for (auto iter = my_uMap.begin(); iter != my_uMap.end(); ++iter)
@@ -196,7 +196,7 @@ int main()
 	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
 	if (word != words.end())
 	{
-		std::cout << "same word : " << *word << std::endl;
+		std::cout << "same word:" << *word << std::endl;
 	}
 
 	// STL unique
@@ -208,7 +208,7 @@ int main()
 	auto iter = std::rotate(std::begin(words), std::begin(words) + 3, std::end(words));
 	std::copy(std::begin(words), std::end(words), std::ostream_iterator<std::string>{std::cout, " "});
 	std::cout << std::endl
-			  << "First element before rotation: " << *iter << std::endl;
+			  << "first element before rotation:" << *iter << std::endl;
 	// STL move
 	std::move(std::begin(words) + 2, std::end(words), std::begin(words));
 	return 0;
