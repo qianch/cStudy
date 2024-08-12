@@ -188,7 +188,7 @@ int main()
 	std::set<std::string> myset{"a", "b", "c"};
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
-	std::vector<std::string> words{"one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
+	std::vector<std::string> words{"one", "one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
 	// replace_copy
 	std::vector<std::string> new_words;
 	std::replace_copy(std::begin(words), std::end(words), std::back_inserter(new_words), std::string{"one"}, std::string{"0"});
