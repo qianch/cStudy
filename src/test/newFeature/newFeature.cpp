@@ -189,14 +189,15 @@ int main()
 	std::cout << "myset.size:" << myset.size() << std::endl;
 
 	std::vector<std::string> words{"one", "one", "two", "two", "three", "two", "two", "two", "four", "five", "six", "seven", "eight"};
+	std::replace(std::begin(words), std::end(words), "one", "two");
 	// replace_copy
 	std::vector<std::string> new_words;
-	std::replace_copy(std::begin(words), std::end(words), std::back_inserter(new_words), std::string{"one"}, std::string{"0"});
+	std::replace_copy(std::begin(words), std::end(words), std::back_inserter(new_words), std::string{"two"}, std::string{"2"});
 	// adjacent_find 查找 2 个连续相等的元素
-	std::vector<std::string>::iterator word = adjacent_find(words.begin(), words.end());
-	if (word != words.end())
+	std::vector<std::string>::iterator new_word = adjacent_find(new_words.begin(), new_words.end());
+	if (new_word != new_words.end())
 	{
-		std::cout << "same word:" << *word << std::endl;
+		std::cout << "same word:" << *new_word << std::endl;
 	}
 
 	// STL unique
