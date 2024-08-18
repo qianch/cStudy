@@ -5,15 +5,16 @@
 
 void test(int n)
 {
-    if (n == 42) {
+    if (n == 42)
+    {
         return;
     }
-    throw std::runtime_error("Not the answer");
+    throw std::runtime_error("not the answer");
 }
 
-TEST_CASE("case1", "[tcase1]")
+TEST_CASE("case1", "[case1]")
 {
-    INFO("Testing");
+    INFO("testing");
     CHECK(1 + 1 == 2);
     CHECK_THROWS_AS(
         test(41), std::runtime_error);
@@ -23,9 +24,8 @@ TEST_CASE("case1", "[tcase1]")
     CHECK(2 + 2 == expected);
 }
 
-TEST_CASE("case2", "[tcase2]")
+TEST_CASE("case2", "[case2]")
 {
     CHECK(1 == 1);
     CHECK(1 == 2);
 }
-
