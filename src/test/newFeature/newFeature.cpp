@@ -145,19 +145,19 @@ int main()
 	std::cout << lst.front() << " " << lst.back() << std::endl;
 
 	// map容器,默认为less升序,此处设置为greater降序
-	std::map<std::string, std::string, std::greater<std::string>> myMap;
+	std::map<std::string, std::string, std::greater<std::string>> my_map;
 	// 调用 emplace() 方法，直接向 myMap 容器中指定位置构造新键值对
-	myMap.emplace("a", "1");
-	myMap.emplace("b", "2");
-	myMap.emplace("c", "3");
-	myMap["aa"] = "11";
+	my_map.emplace("a", "1");
+	my_map.emplace("b", "2");
+	my_map.emplace("c", "3");
+	my_map["aa"] = "11";
 	// 输出当前 myMap 容器存储键值对的个数
-	std::cout << "myMap size==" << myMap.size() << std::endl;
+	std::cout << "myMap size==" << my_map.size() << std::endl;
 	// 判断当前 myMap 容器是否为空
-	if (!myMap.empty())
+	if (!my_map.empty())
 	{
 		// 借助 myMap 容器迭代器，将该容器的键值对逐个输出
-		for (auto i = myMap.begin(); i != myMap.end(); ++i)
+		for (auto i = my_map.begin(); i != my_map.end(); ++i)
 		{
 			spdlog::info("first:{},second:{}", i->first.data(), i->second.data());
 		}
@@ -169,11 +169,11 @@ int main()
 		{"e", "5"},
 		{"f", "6"}};
 	// 构建要添加的键值对
-	std::pair<std::string, std::string> mypair("g", "7");
+	std::pair<std::string, std::string> my_pair("g", "7");
 	// 创建接收 insert() 方法返回值的pair类型变量
 	std::pair<std::unordered_map<std::string, std::string>::iterator, bool> ret;
 	// 调用 insert() 方法的第一种语法格式
-	ret = my_uMap.insert(mypair);
+	ret = my_uMap.insert(my_pair);
 	// 调用 insert() 方法的第二种语法格式
 	ret = my_uMap.insert(std::make_pair("h", "8"));
 	// 查找指定键对应的值，效率比关联式容器高
