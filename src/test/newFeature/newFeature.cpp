@@ -164,7 +164,7 @@ int main()
 	}
 
 	// 创建并初始化一个 unordered_map 容器，其存储的 <string,string> 类型的键值对
-	std::unordered_map<std::string, std::string> my_uMap{
+	std::unordered_map<std::string, std::string> my_unordered_map{
 		{"d", "4"},
 		{"e", "5"},
 		{"f", "6"}};
@@ -173,14 +173,14 @@ int main()
 	// 创建接收 insert() 方法返回值的pair类型变量
 	std::pair<std::unordered_map<std::string, std::string>::iterator, bool> ret;
 	// 调用 insert() 方法的第一种语法格式
-	ret = my_uMap.insert(my_pair);
+	ret = my_unordered_map.insert(my_pair);
 	// 调用 insert() 方法的第二种语法格式
-	ret = my_uMap.insert(std::make_pair("h", "8"));
+	ret = my_unordered_map.insert(std::make_pair("h", "8"));
 	// 查找指定键对应的值，效率比关联式容器高
-	std::string str = my_uMap.at("d");
+	std::string str = my_unordered_map.at("d");
 	std::cout << "str = " << str.data() << std::endl;
 	// 使用迭代器遍历哈希容器，效率不如关联式容器
-	for (auto iter = my_uMap.begin(); iter != my_uMap.end(); ++iter)
+	for (auto iter = my_unordered_map.begin(); iter != my_unordered_map.end(); ++iter)
 	{
 		// pair 类型键值对分为 2 部分
 		std::cout << iter->first.data() << " " << iter->second.data() << std::endl;
