@@ -114,5 +114,5 @@ void printStudent3(Student* s)
 
 void printCstudent(CStudent *s) 
 {
-	cout << "name：" << s->name.data() << "age：" << s->age << endl;
+	cout << "name：" << s->name.data() << ",age：" << s->age << endl;
 }
