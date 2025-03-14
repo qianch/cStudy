@@ -10,10 +10,32 @@ struct Student
 	int age;
 };
 
+class CStudent
+{
+public:
+	string name;
+	int age;
+	CStudent();
+	~CStudent();
+
+private:
+
+};
+
+CStudent::CStudent()
+{
+	name = "cStudent1";
+	age = 1;
+}
+
+CStudent::~CStudent()
+{
+}
+
 void printStudent1(Student s);
 void printStudent2(Student &s);
 void printStudent3(Student *s);
-
+void printCstudent(CStudent *s);
 int main()
 {
 	int n = 10;
@@ -44,6 +66,9 @@ int main()
 	s4->age = 10;
 	printStudent3(s4);
 	cout << "源结构体的变量：" << "姓名：" << s4->name.data() << "年龄：" << s4->age << endl;
+
+	CStudent cStuend1;
+	printCstudent(&cStuend1);
 
 	return true;
 }
@@ -85,4 +110,9 @@ void printStudent3(Student* s)
 {
 	s->age = 18;
 	cout << "采用指针传递的方式：" << "姓名：" << s->name.data() << "年龄：" << s->age << endl;
+}
+
+void printCstudent(CStudent *s) 
+{
+	cout << "name：" << s->name.data() << "age：" << s->age << endl;
 }
