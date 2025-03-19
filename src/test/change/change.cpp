@@ -35,7 +35,8 @@ CStudent::~CStudent()
 void printStudent1(Student s);
 void printStudent2(Student &s);
 void printStudent3(Student *s);
-void printCstudent(CStudent *s);
+void printCstudent1(CStudent s);
+void printCstudent2(CStudent *s);
 int main()
 {
 	int n = 10;
@@ -51,24 +52,30 @@ int main()
 
 	Student s1 = { "张三",12 };
 	printStudent1(s1);
-	cout << "源结构体的变量：" << "姓名：" << s1.name.data() << "年龄：" << s1.age << endl;
+	cout << "源结构体的变量：" << "姓名：" << s1.name.data() << "，年龄：" << s1.age << endl;
 
 	Student s2 = { "张三",12 };
 	printStudent2(s2);
-	cout << "源结构体的变量：" << "姓名：" << s2.name.data() << "年龄：" << s2.age << endl;
+	cout << "源结构体的变量：" << "姓名：" << s2.name.data() << "，年龄：" << s2.age << endl;
 
 	Student s3 = { "张三",12 };
 	printStudent3(&s3);
-	cout << "源结构体的变量：" << "姓名：" << s3.name.data() << "年龄：" << s3.age << endl;
+	cout << "源结构体的变量：" << "姓名：" << s3.name.data() << "，年龄：" << s3.age << endl;
 
 	Student * s4 = new Student();
 	s4->name = "王五";
 	s4->age = 10;
 	printStudent3(s4);
-	cout << "源结构体的变量：" << "姓名：" << s4->name.data() << "年龄：" << s4->age << endl;
+	cout << "源结构体的变量：" << "姓名：" << s4->name.data() << "，年龄：" << s4->age << endl;
 
 	CStudent cStuend1;
-	printCstudent(&cStuend1);
+	printCstudent1(cStuend1);
+	cout << "cStuend1：" << "姓名：" << cStuend1.name.data() << "，年龄：" << cStuend1.age << endl;
+
+	CStudent cStuend2;
+	printCstudent2(&cStuend2);
+	cout << "cStuend2：" << "姓名：" << cStuend2.name.data() << "，年龄：" << cStuend2.age << endl;
+
 
 	return true;
 }
@@ -97,22 +104,31 @@ void change3(int *n)
 void printStudent1(Student s)
 {
 	s.age = 18;
-	cout << "采用值传递的方式：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
+	cout << "采用值传递的方式：" << "姓名：" << s.name.data() << "，年龄：" << s.age << endl;
 }
 
 void printStudent2(Student& s)
 {
 	s.age = 18;
-	cout << "采用引用传递的方式：" << "姓名：" << s.name.data() << "年龄：" << s.age << endl;
+	cout << "采用引用传递的方式：" << "姓名：" << s.name.data() << "，年龄：" << s.age << endl;
 }
 
 void printStudent3(Student* s)
 {
 	s->age = 18;
-	cout << "采用指针传递的方式：" << "姓名：" << s->name.data() << "年龄：" << s->age << endl;
+	cout << "采用指针传递的方式：" << "姓名：" << s->name.data() << "，年龄：" << s->age << endl;
 }
 
-void printCstudent(CStudent *s) 
+void printCstudent1(CStudent s)
 {
-	cout << "name：" << s->name.data() << ",age：" << s->age << endl;
+	s.name = "cStudent11";
+	s.age = 11;
+	cout << "cStudent1指针地址：" << &s << "，name：" << s.name.data() << "，age：" << s.age << endl;
+}
+
+void printCstudent2(CStudent* s)
+{
+	s->name = "cStudent22";
+	s->age = 22;
+	cout << "cStudent2指针地址：" << s << "，name：" << s->name.data() << "，age：" << s->age << endl;
 }
