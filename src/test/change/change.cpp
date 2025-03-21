@@ -70,11 +70,11 @@ int main()
 
 	CStudent cStuend1;
 	printCstudent1(cStuend1);
-	cout << "cStuend1：" << "姓名：" << cStuend1.name.data() << "，年龄：" << cStuend1.age << endl;
+	cout << "函数外部cStuend1指针地址："<< &cStuend1 << "，cStuend1：" << "姓名：" << cStuend1.name.data() << "，年龄：" << cStuend1.age << endl;
 
 	CStudent cStuend2;
 	printCstudent2(&cStuend2);
-	cout << "cStuend2：" << "姓名：" << cStuend2.name.data() << "，年龄：" << cStuend2.age << endl;
+	cout <<"函数外部cStuend2指针地址：" << &cStuend2 <<"，cStuend2：" << "姓名：" << cStuend2.name.data() << "，年龄：" << cStuend2.age << endl;
 
 
 	return true;
@@ -123,12 +123,12 @@ void printCstudent1(CStudent s)
 {
 	s.name = "cStudent11";
 	s.age = 11;
-	cout << "cStudent1指针地址：" << &s << "，name：" << s.name.data() << "，age：" << s.age << endl;
+	cout << "函数内部cStudent1指针地址：" << &s << "，name：" << s.name.data() << "，age：" << s.age << endl;
 }
 
 void printCstudent2(CStudent* s)
 {
 	s->name = "cStudent22";
 	s->age = 22;
-	cout << "cStudent2指针地址：" << s << "，name：" << s->name.data() << "，age：" << s->age << endl;
+	cout << "函数内部cStudent2指针地址：" << s << "，name：" << s->name.data() << "，age：" << s->age << endl;
 }
